@@ -16,7 +16,7 @@ resource "aws_instance" "vault" {
   ami                    = "${data.aws_ami.ec2_ami.id}"
   instance_type          = "${var.image_size}"
   security_groups        = ["${aws_security_group.vault-ingress.name}"]
-  key_name               = "${var.key_name}"
+  key_name               = "${var.pub_key_name}"
 
   # This EC2 Instance has a public IP and will be accessible directly from the public Internet
   associate_public_ip_address = true

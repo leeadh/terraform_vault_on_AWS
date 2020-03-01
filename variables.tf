@@ -31,6 +31,12 @@ variable "key_name" {
   default     = "~/.ssh/aws-kp.pem"
 }
 
+variable "pub_key_name" {
+  description = "SSH Public Key"
+  type        = "string"
+  default     = "aws-kp"
+}
+
 variable "profile_name" {
     description = "AWS credential profile which can be found in ~/.aws/credentials"
     type = "string"
