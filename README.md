@@ -42,3 +42,5 @@ vault_url = 13.229.130.191:8200
 
 Scroll over to the vault addess and you should hit the below page
 
+![Image description](https://github.com/leeadh/aws_vault_terraform/blob/master/files/vault.png)
+
