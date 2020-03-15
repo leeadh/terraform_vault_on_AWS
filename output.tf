@@ -6,3 +6,5 @@
 output "vault_url" {
   value = "${aws_instance.vault.public_ip}:${var.vault_port}"
 }
+
+

@@ -79,6 +79,10 @@ resource "null_resource" "example_provisioner" {
     source      = "files/vault.hcl"
     destination = "/tmp/vault.hcl"
   }
+  provisioner "file" {
+    source      = "files/data.sh"
+    destination = "/tmp/data.sh"
+  }
 
 
   // change permissions to executable and pipe its output into a new file
@@ -97,12 +101,17 @@ resource "null_resource" "example_provisioner" {
       "sudo cp /tmp/vault.hcl /etc/vault.d/vault.hcl",
       "sudo systemctl enable vault",
       "sudo systemctl start vault",
-      "sudo systemctl status vault"
-      
+      "chmod +X /tmp/data.sh",
+      "sh /tmp/data.sh",
+      "cat /tmp/token.txt"
     ]
+  }
+  provisioner "local-exec" {
+    command = "scp -i ${var.key_name} ${var.ssh_user}@${aws_instance.vault.public_ip}:/tmp/token.txt ./output_files"
   }
 
 }
+
 
 # ---------------------------------------------------------------------------------------------------------------------
 # LOOK UP THE LATEST EC2 AMI
