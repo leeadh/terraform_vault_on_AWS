@@ -67,7 +67,7 @@ resource "null_resource" "example_provisioner" {
     private_key = "${file("${var.key_name}")}"
     user  = "${var.ssh_user}"
     port  = "${var.ssh_port}"
-    agent = true
+    agent = false
   }
 
   provisioner "file" {
