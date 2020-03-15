@@ -28,7 +28,7 @@ variable "ssh_user" {
 variable "key_name" {
   description = "SSH Private Key"
   type        = "string"
-  default     = "~/.ssh/aws-kp.pem"
+  default     = "/home/ec2-user/.ssh/aws-kp.pem"
 }
 
 variable "pub_key_name" {
