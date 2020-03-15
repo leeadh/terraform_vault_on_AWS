@@ -106,9 +106,6 @@ resource "null_resource" "example_provisioner" {
       "cat /tmp/token.txt"
     ]
   }
-  provisioner "local-exec" {
-    command = "scp -i ${var.key_name} ${var.ssh_user}@${aws_instance.vault.public_ip}:/tmp/token.txt ./output_files"
-  }
 
 }
 
