@@ -25,7 +25,7 @@ pipeline {
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
           ]]) {
             ansiColor('xterm') {
-              sh 'terraform destroy --force'
+              sh 'terraform destroy --force -state=terraform.tfstate'
             }
           }
         }
