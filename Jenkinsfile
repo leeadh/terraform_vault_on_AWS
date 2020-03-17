@@ -32,13 +32,6 @@ pipeline {
         }
       }
 
-      //clean
-      stage('Cleaning build') {
-        steps {
-            sh 'rm -f terraform.tfstate'
-        }
-      }
-
 
 
       //init
